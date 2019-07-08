@@ -23,9 +23,9 @@ import javax.ws.rs.ext.Provider;
 
 import com.google.gson.Gson;
 
-import br.com.johndeere.constantes.AuthVO;
 import br.com.johndeere.constantes.JdConstantes;
-import br.com.johndeere.login.constantes.LoginConstantes;
+import br.com.johndeere.constantes.LoginConstantes;
+import br.com.johndeere.vo.AuthVO;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
 import io.jsonwebtoken.Jwts;

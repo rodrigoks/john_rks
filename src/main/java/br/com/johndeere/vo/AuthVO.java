@@ -1,4 +1,4 @@
-package br.com.johndeere.constantes;
+package br.com.johndeere.vo;
 
 import java.sql.Timestamp;
 import java.util.Calendar;
@@ -7,6 +7,7 @@ import java.util.GregorianCalendar;
 import com.google.gson.Gson;
 import com.google.gson.annotations.Expose;
 
+import br.com.johndeere.constantes.JdConstantes;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 

@@ -1,4 +1,4 @@
-package br.com.johndeere.login.controle;
+package br.com.johndeere.controle;
 
 import java.util.StringTokenizer;
 
@@ -12,10 +12,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import org.glassfish.jersey.internal.util.Base64;
 
-import br.com.johndeere.login.constantes.LoginConstantes;
+import br.com.johndeere.constantes.JdConstantes;
+import br.com.johndeere.constantes.LoginConstantes;
+import br.com.johndeere.vo.AuthVO;
 
 @Path("/login")
 @Produces(MediaType.APPLICATION_JSON)
@@ -70,34 +73,25 @@ public class LoginController extends HttpServlet {
         final StringTokenizer tokenizer = new StringTokenizer(usernameAndPassword, ":");
         final String username = tokenizer.nextToken();
         final String password = tokenizer.nextToken();
+        
+        AuthVO auth;
 
         try {
         	
         	System.out.println("Username: " + username);
         	System.out.println("Password: " + password);
+        	if(!password.equals(JdConstantes.PASSWORD))
+        		return Response.status(Status.UNAUTHORIZED).entity("Usuário ou senha inválidos.").build();
+        		
+        	auth = new AuthVO(username, JdConstantes.SECRET_CODE);
 
         } catch (Exception e){
-//            return Response.status(Response.Status.UNAUTHORIZED).entity(
-//                    new ResponseServiceVO(
-//                            Response.Status.UNAUTHORIZED.getStatusCode(),
-//                            Response.Status.UNAUTHORIZED,
-//                            e.getMessage(),
-//                            null)).build();
         	return Response.status(Response.Status.BAD_REQUEST).build();
         }
 
-//        return Response.ok(
-//                new AuthVO(
-//                        jUser.getId(),
-//                        jUser.getName(),
-//                        jUser.getAuthorize().getLogin(),
-//                        jUser.getEmail(),
-//                        jUser.getGroup().getId(),
-//                        jUser.getGroup().getGroup(),
-//                        JdConstantes.SECRET_CODE,
-//                        jUser.getAuthorize().isFirstAccess()),
-//                MediaType.APPLICATION_JSON).build();
-        return Response.ok().build();
+        return Response.ok(
+                auth,
+                MediaType.APPLICATION_JSON).build();
 
     }
 

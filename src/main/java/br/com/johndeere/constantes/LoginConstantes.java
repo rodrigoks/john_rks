@@ -1,4 +1,4 @@
-package br.com.johndeere.login.constantes;
+package br.com.johndeere.constantes;
 
 /**
  * Created by jbusiness on 30/03/17.
