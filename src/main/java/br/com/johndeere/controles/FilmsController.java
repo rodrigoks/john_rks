@@ -10,14 +10,14 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.johndeere.exceptions.FilmesException;
-import br.com.johndeere.servicos.ConsultarFilmes;
+import br.com.johndeere.exceptions.FilmsException;
+import br.com.johndeere.servicos.ConsultFilm;
 import br.com.johndeere.vos.FilmVO;
 
 @Path("/filmes")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class FilmesController extends HttpServlet {
+public class FilmsController extends HttpServlet {
 	
     @GET
     @PermitAll
@@ -26,14 +26,14 @@ public class FilmesController extends HttpServlet {
     		@QueryParam("character_id") String character_id) throws Exception {
 
         FilmVO obj = null;
-        ConsultarFilmes filmes;
+        ConsultFilm filmes;
 
         try {
         	
-        	filmes = new ConsultarFilmes();
+        	filmes = new ConsultFilm();
         	obj = filmes.consultarFilmes(film_id);
         	
-        } catch (FilmesException fe) {
+        } catch (FilmsException fe) {
 			// TODO: handle exception
         } catch (Exception e){
             return Response.status(Response.Status.CONFLICT)

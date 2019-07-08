@@ -5,15 +5,15 @@ import java.net.URL;
 
 import javax.net.ssl.HttpsURLConnection;
 
-import br.com.johndeere.exceptions.FilmesException;
+import br.com.johndeere.exceptions.FilmsException;
 import br.com.johndeere.vos.FilmVO;
 
-public class ConsultarFilmes {
+public class ConsultFilm {
 
-	public FilmVO consultarFilmes(String filmId) throws FilmesException, IOException {
+	public FilmVO consultarFilmes(String filmId) throws FilmsException, IOException {
 		
 		if(filmId.equals(""))
-			throw new FilmesException("Favor informar um valor para filmId");
+			throw new FilmsException("Favor informar um valor para filmId");
 		
 		URL url;
 		HttpsURLConnection conn = null;
