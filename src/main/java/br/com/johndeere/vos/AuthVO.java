@@ -1,4 +1,4 @@
-package br.com.johndeere.vo;
+package br.com.johndeere.vos;
 
 import java.sql.Timestamp;
 import java.util.Calendar;

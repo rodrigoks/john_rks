@@ -1,4 +1,4 @@
-package br.com.johndeere.controle;
+package br.com.johndeere.controles;
 
 import java.util.StringTokenizer;
 
@@ -18,7 +18,8 @@ import org.glassfish.jersey.internal.util.Base64;
 
 import br.com.johndeere.constantes.JdConstantes;
 import br.com.johndeere.constantes.LoginConstantes;
-import br.com.johndeere.vo.AuthVO;
+import br.com.johndeere.exceptions.FilmesException;
+import br.com.johndeere.vos.AuthVO;
 
 @Path("/login")
 @Produces(MediaType.APPLICATION_JSON)
@@ -84,7 +85,7 @@ public class LoginController extends HttpServlet {
         		return Response.status(Status.UNAUTHORIZED).entity("Usuário ou senha inválidos.").build();
         		
         	auth = new AuthVO(username, JdConstantes.SECRET_CODE);
-
+        	
         } catch (Exception e){
         	return Response.status(Response.Status.BAD_REQUEST).build();
         }
