@@ -14,10 +14,10 @@ import br.com.johndeere.exceptions.FilmsException;
 import br.com.johndeere.servicos.ConsultFilm;
 import br.com.johndeere.vos.FilmVO;
 
-@Path("/filmes")
+@Path("/JohnDeere")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class FilmsController extends HttpServlet {
+public class JdController extends HttpServlet {
 	
     @GET
     @PermitAll
