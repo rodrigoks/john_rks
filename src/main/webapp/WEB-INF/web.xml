@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+    id="WebApp_ID" version="3.1">
+
+    <display-name>Logbook</display-name>
+    <description>Logbook</description>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Logbook</web-resource-name>
+            <url-pattern>/*</url-pattern>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <session-config>
+        <session-timeout>120</session-timeout>
+    </session-config>
+    
+    <listener>
+        <listener-class>br.com.audilog.logbook.scheduler.controles.WebControllerAutomatico</listener-class>
+    </listener>
+
+    <welcome-file-list>
+        <welcome-file>Index.html</welcome-file>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+    </welcome-file-list>
+</web-app>

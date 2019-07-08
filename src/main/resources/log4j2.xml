@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info" monitorInterval="1800" name="logbook">
+
+	<Properties>
+		<Property name="filename">/home/rodrigo/logs/logbook/logbook-%d{yyyy-MM-dd}-%i.log</Property>
+		<Property name="filenameDaily">/home/rodrigo/logs/logbook/logbook-daily-%d{yyyy-MM-dd}-%i.log</Property>
+	</Properties>
+
+	<Appenders>
+		<RollingFile name="LogbookRollingFile" filePattern="${filename}">
+			<PatternLayout>
+				<Pattern>logbook: %C{1}.%M %ex%n %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<CronTriggeringPolicy schedule="0 0 * * * ?"/>
+				<SizeBasedTriggeringPolicy size="25 MB"/>
+			</Policies>
+		</RollingFile>
+		<RollingFile name="LogbookRollingDailyFile" filePattern="${filenameDaily}">
+			<PatternLayout>
+				<pattern>[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n</pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+				<CronTriggeringPolicy schedule="0 0 * * * ?"/>
+				<SizeBasedTriggeringPolicy size="10 MB"/>
+			</Policies>
+		</RollingFile>
+				
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="logbook: %C{1}.%M %ex%n %d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+	
+	<Loggers>
+		<logger name="br.com.audilog.logbook" level="info">
+			<appender-ref ref="LogbookRollingDailyFile" />
+		</logger>
+		 <logger name="org.quartz" additivity="false" level="error">
+		 </logger>
+		<root level="info">
+			<appender-ref ref="Console" />
+		</root>
+	</Loggers>
+</configuration>

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.6.0.final using JasperReports Library version 5.5.2  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="relatorio_logbook_auditoria_pre_sub" printOrder="Horizontal" pageWidth="2500" pageHeight="595" orientation="Landscape" columnWidth="2440" leftMargin="30" rightMargin="30" topMargin="20" bottomMargin="20" whenResourceMissingType="Empty" isIgnorePagination="true" uuid="d693575d-0e4c-49bb-b260-3e544bd1a734">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="6535"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.unit." value="pixel"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w1" value="173"/>
+	<property name="com.jaspersoft.studio.data.sql.SQLQueryDesigner.sash.w2" value="822"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Logbook (Localhost - Novelis)"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<parameter name="whereClause" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select 
+logbook08_logbook_nota.flogbook08_cnpj_emissor,
+logbook08_logbook_nota.flogbook08_numero,
+logbook08_logbook_nota.flogbook08_serie,
+logbook20_erros_pre_calculo.flogbook20_erro
+from logbook20_erros_pre_calculo
+inner join logbook08_logbook_nota
+on logbook20_erros_pre_calculo.flogbook08_id = logbook08_logbook_nota.flogbook08_id
+inner join logbook07_logbook
+on logbook07_logbook.flogbook07_id = logbook08_logbook_nota.flogbook07_id
+where logbook08_logbook_nota.flogbook07_id in (
+SELECT distinct logbook07_logbook.flogbook07_id
+from logbook07_logbook
+WHERE $P!{whereClause}
+) ORDER BY
+  logbook07_logbook.flogbook07_data_emissao_cte, logbook07_logbook.flogbook07_cte
+DESC]]>
+	</queryString>
+	<field name="flogbook08_cnpj_emissor" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="flogbook08_cnpj_emissor"/>
+	</field>
+	<field name="flogbook08_numero" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="flogbook08_numero"/>
+	</field>
+	<field name="flogbook08_serie" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="flogbook08_serie"/>
+	</field>
+	<field name="flogbook20_erro" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.label" value="flogbook20_erro"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="34" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="1" width="100" height="30" uuid="abde80e4-2aa5-480b-bd05-dd0b48388ab7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CNPJ Emissor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="100" y="1" width="100" height="30" uuid="ba83397b-4e50-4968-9803-dc03d8c6d203"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nota Fiscal]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="200" y="1" width="100" height="30" uuid="1e842b8f-3b85-47c2-a4bd-98d259faf455"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Serie]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="300" y="1" width="750" height="30" uuid="6ea84b2b-82b9-481a-9113-0a2f62a417a3"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Erro]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="22" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="100" height="20" uuid="c02b0d66-8b2e-4764-8cc0-3fb1c578eee3">
+					<property name="com.jaspersoft.studio.unit.height" value="pixel"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{flogbook08_cnpj_emissor}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="100" y="0" width="100" height="20" uuid="cc5f3c88-1474-4e72-9361-c54e5ac28cba"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{flogbook08_numero}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="200" y="0" width="100" height="20" uuid="3f8c3d01-6837-42fe-b15e-f7228f11903a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{flogbook08_serie}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement x="300" y="0" width="750" height="20" uuid="c165d096-2757-46fc-8f30-984d65719d77"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Arial" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{flogbook20_erro}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<lastPageFooter>
+		<band/>
+	</lastPageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

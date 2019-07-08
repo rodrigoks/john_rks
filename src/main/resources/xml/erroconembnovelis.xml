@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<controle>
+    <campoReferencia>WEEK</campoReferencia>
+    <colCamposNaoNulos>WEEK</colCamposNaoNulos>
+    <colCamposNaoNulos>TRANSPORTADORA</colCamposNaoNulos>
+    <colCamposNaoNulos>CNPJ TRANSPORTADORA</colCamposNaoNulos>
+    <colCamposNaoNulos>FILIAL</colCamposNaoNulos>
+    <colCamposNaoNulos>TIPO DO DOCUMENTO</colCamposNaoNulos>
+    <colCamposNaoNulos>OPERACAO</colCamposNaoNulos>
+    <colCamposNaoNulos>CTRC</colCamposNaoNulos>
+    <colCamposNaoNulos>SERIE CTRC</colCamposNaoNulos>
+    <colCamposNaoNulos>CHAVE CTRC</colCamposNaoNulos>
+    <colCamposNaoNulos>DATA EMISSAO CTRC</colCamposNaoNulos>
+    <colCamposNaoNulos>TIPO DO SERVICO</colCamposNaoNulos>
+    <colCamposNaoNulos>ROTA</colCamposNaoNulos>
+    <colCamposNaoNulos>ORIGEM</colCamposNaoNulos>
+    <colCamposNaoNulos>UF ORIGEM</colCamposNaoNulos>
+    <colCamposNaoNulos>DESTINO</colCamposNaoNulos>
+    <colCamposNaoNulos>UF DESTINO</colCamposNaoNulos>
+    <colCamposNaoNulos>TIPO DE COBRANCA</colCamposNaoNulos>
+    <colCamposNaoNulos>ALIQUOTA DO ICMS (%)</colCamposNaoNulos>
+    <colCamposNaoNulos>VALOR DO ICMS (R$)</colCamposNaoNulos>
+    <colCamposNaoNulos>TIPO DO VEICULO SOLICITADO</colCamposNaoNulos>
+    <colCamposNaoNulos>CAPACIDADE DO VEICULO SOLICITADO (ton)</colCamposNaoNulos>
+    <colCamposNaoNulos>TIPO DO VEICULO UTILIZADO</colCamposNaoNulos>
+    <colCamposNaoNulos>CAPACIDADE DO VEICULO UTILIZADO (ton)</colCamposNaoNulos>
+    <colCamposObrigatorios>WEEK</colCamposObrigatorios>
+    <colCamposObrigatorios>TRANSPORTADORA</colCamposObrigatorios>
+    <colCamposObrigatorios>CNPJ TRANSPORTADORA</colCamposObrigatorios>
+    <colCamposObrigatorios>FILIAL</colCamposObrigatorios>
+    <colCamposObrigatorios>EMISSOR NF</colCamposObrigatorios>
+    <colCamposObrigatorios>CNPJ EMISSOR NF</colCamposObrigatorios>
+    <colCamposObrigatorios>NOTA FISCAL</colCamposObrigatorios>
+    <colCamposObrigatorios>SERIE NOTA FISCAL</colCamposObrigatorios>
+    <colCamposObrigatorios>TIPO DO DOCUMENTO</colCamposObrigatorios>
+    <colCamposObrigatorios>OPERACAO</colCamposObrigatorios>
+    <colCamposObrigatorios>CTRC</colCamposObrigatorios>
+    <colCamposObrigatorios>SERIE CTRC</colCamposObrigatorios>
+    <colCamposObrigatorios>CHAVE CTRC</colCamposObrigatorios>
+    <colCamposObrigatorios>DATA EMISSAO CTRC</colCamposObrigatorios>
+    <colCamposObrigatorios>TIPO DO SERVICO</colCamposObrigatorios>
+    <colCamposObrigatorios>SOLICITANTE DO SERVICO</colCamposObrigatorios>
+    <colCamposObrigatorios>DATA AGENDAMENTO/APROVACAO DO SERVICO</colCamposObrigatorios>
+    <colCamposObrigatorios>DATA FINALIZACAO DO SERVICO</colCamposObrigatorios>
+    <colCamposObrigatorios>No. DO PERCURSO/AGENDAMENTO</colCamposObrigatorios>
+    <colCamposObrigatorios>ROTA</colCamposObrigatorios>
+    <colCamposObrigatorios>ORIGEM</colCamposObrigatorios>
+    <colCamposObrigatorios>UF ORIGEM</colCamposObrigatorios>
+    <colCamposObrigatorios>DESTINO</colCamposObrigatorios>
+    <colCamposObrigatorios>UF DESTINO</colCamposObrigatorios>
+    <colCamposObrigatorios>EXTENSÃO DA ROTA (Km)</colCamposObrigatorios>
+    <colCamposObrigatorios>PESO DA NOTA FISCAL (ton)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DA NOTA FISCAL (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>TIPO DE COBRANCA</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DA TARIFA (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DO FRETE PESO (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DO PEDAGIO (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>ALIQUOTA DO SEGURO (%)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DO SEGURO (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>ALIQUOTA DO ICMS (%)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DO ICMS (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DE DESPESA EXTRA (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>VALOR DE EMISSAO DO CTRC (R$)</colCamposObrigatorios>
+    <colCamposObrigatorios>TIPO DO VEICULO SOLICITADO</colCamposObrigatorios>
+    <colCamposObrigatorios>CAPACIDADE DO VEICULO SOLICITADO (ton)</colCamposObrigatorios>
+    <colCamposObrigatorios>TIPO DO VEICULO UTILIZADO</colCamposObrigatorios>
+    <colCamposObrigatorios>CAPACIDADE DO VEICULO UTILIZADO (ton)</colCamposObrigatorios>
+    <colCamposObrigatorios>PLACA DO VEICULO UTILIZADO</colCamposObrigatorios>
+    <colCamposObrigatorios>OBSERVACAO</colCamposObrigatorios>
+    <hshMethods>
+        <entry>
+            <key>PESO DA NOTA FISCAL (ton)</key>
+            <value>
+                <nomePropriedade>pesoNotaFiscal</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>DATA AGENDAMENTO/APROVACAO DO SERVICO</key>
+            <value>
+                <nomePropriedade>dataAgendamento</nomePropriedade>
+                <pattern>dd/MM/yyyy</pattern>
+                <tipoRetorno>2</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DA TARIFA (R$)</key>
+            <value>
+                <nomePropriedade>valorTarifa</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DE DESPESA EXTRA (R$)</key>
+            <value>
+                <nomePropriedade>valorDespesaExtra</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>UF DESTINO</key>
+            <value>
+                <nomePropriedade>ufDestinoStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>TIPO DO VEICULO UTILIZADO</key>
+            <value>
+                <nomePropriedade>tipoVeiculoUtilizadoStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>EXTENSÃO DA ROTA (Km)</key>
+            <value>
+                <nomePropriedade>extensaoRota</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>ALIQUOTA DO ICMS (%)</key>
+            <value>
+                <nomePropriedade>aliquotaIcms</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>ROTA</key>
+            <value>
+                <nomePropriedade>rota</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>3</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>SERIE CTRC</key>
+            <value>
+                <nomePropriedade>serieCte</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>OPERACAO</key>
+            <value>
+                <nomePropriedade>operacaoStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>No. DO PERCURSO/AGENDAMENTO</key>
+            <value>
+                <nomePropriedade>percurso</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>CAPACIDADE DO VEICULO UTILIZADO (ton)</key>
+            <value>
+                <nomePropriedade>capacidadeVeiculoUtilizado</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>3</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>TRANSPORTADORA</key>
+            <value>
+                <nomePropriedade>transportadora</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>CNPJ TRANSPORTADORA</key>
+            <value>
+                <nomePropriedade>cnpjTransportadora</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>TIPO DO DOCUMENTO</key>
+            <value>
+                <nomePropriedade>tipoDocumentoStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DO ICMS (R$)</key>
+            <value>
+                <nomePropriedade>icms</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>CAPACIDADE DO VEICULO SOLICITADO (ton)</key>
+            <value>
+                <nomePropriedade>capacidadeVeiculoSolicitado</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>3</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>TIPO DO SERVICO</key>
+            <value>
+                <nomePropriedade>tipoServicoStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>WEEK</key>
+            <value>
+                <nomePropriedade>week</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>OBSERVACAO</key>
+            <value>
+                <nomePropriedade>observacao</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>DATA FINALIZACAO DO SERVICO</key>
+            <value>
+                <nomePropriedade>dataFinalizacaoServico</nomePropriedade>
+                <pattern>dd/MM/yyyy</pattern>
+                <tipoRetorno>2</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>ORIGEM</key>
+            <value>
+                <nomePropriedade>origem</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>ALIQUOTA DO SEGURO (%)</key>
+            <value>
+                <nomePropriedade>aliquotaSeguro</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>UF ORIGEM</key>
+            <value>
+                <nomePropriedade>ufOrigemStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>SERIE NOTA FISCAL</key>
+            <value>
+                <nomePropriedade>serieNotaFiscal</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>DATA EMISSAO CTRC</key>
+            <value>
+                <nomePropriedade>dataEmissaoCte</nomePropriedade>
+                <pattern>dd/MM/yyyy</pattern>
+                <tipoRetorno>2</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>EMISSOR NF</key>
+            <value>
+                <nomePropriedade>emissorNotaFiscal</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>CHAVE CTRC</key>
+            <value>
+                <nomePropriedade>chaveCte</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DO FRETE PESO (R$)</key>
+            <value>
+                <nomePropriedade>valorFretePeso</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>TIPO DE COBRANCA</key>
+            <value>
+                <nomePropriedade>tipoCobrancaStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>NOTA FISCAL</key>
+            <value>
+                <nomePropriedade>notaFiscal</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>FILIAL</key>
+            <value>
+                <nomePropriedade>filial</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>CNPJ EMISSOR NF</key>
+            <value>
+                <nomePropriedade>cnpjEmissorNotaFiscal</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DO PEDAGIO (R$)</key>
+            <value>
+                <nomePropriedade>valorPedagio</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>PLACA DO VEICULO UTILIZADO</key>
+            <value>
+                <nomePropriedade>placaVeiculoUtilizado</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>SOLICITANTE DO SERVICO</key>
+            <value>
+                <nomePropriedade>solicitanteServico</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>DESTINO</key>
+            <value>
+                <nomePropriedade>destino</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>TIPO DO VEICULO SOLICITADO</key>
+            <value>
+                <nomePropriedade>tipoVeiculoSolicitadoStr</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DO SEGURO (R$)</key>
+            <value>
+                <nomePropriedade>seguro</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DA NOTA FISCAL (R$)</key>
+            <value>
+                <nomePropriedade>valorNotaFiscal</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>CTRC</key>
+            <value>
+                <nomePropriedade>cte</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>1</tipoRetorno>
+            </value>
+        </entry>
+        <entry>
+            <key>VALOR DE EMISSAO DO CTRC (R$)</key>
+            <value>
+                <nomePropriedade>valorEmissaoCte</nomePropriedade>
+                <pattern></pattern>
+                <tipoRetorno>0</tipoRetorno>
+            </value>
+        </entry>
+    </hshMethods>
+</controle>

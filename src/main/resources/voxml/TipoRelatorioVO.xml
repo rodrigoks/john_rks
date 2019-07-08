@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tiporelatorio">
+
+    <select id="select" resultMap="result" >
+        SELECT
+        	*
+        FROM
+        	logbook03_tipos_relatorios
+        ORDER BY
+        	flogbook03_tipo
+    </select>
+
+    <resultMap id="result" type="TipoRelatorio">
+        <result property="id" column="flogbook03_id" />
+        <result property="tipo" column="flogbook03_tipo" />
+    </resultMap>
+
+</mapper>

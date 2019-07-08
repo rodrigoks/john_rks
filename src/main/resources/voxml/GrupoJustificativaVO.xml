@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="grupojustificativa">
+
+    <select id="select" resultMap="result" >
+        SELECT
+        	*
+        FROM
+        	logbook18_grupo_justificativas
+        ORDER BY
+        	flogbook18_nome
+    </select>
+
+    <select id="selectWithJustificativas" resultMap="resultWithJustificativas" >
+        SELECT
+        	*
+        FROM
+        	logbook18_grupo_justificativas
+       	INNER JOIN
+       		logbook19_justificativas
+       	ON
+       		logbook18_grupo_justificativas.flogbook18_id = logbook19_justificativas.flogbook18_id
+        ORDER BY
+        	flogbook18_nome
+    </select>
+
+    <resultMap id="result" type="GrupoJustificativaVO">
+        <id property="id" column="flogbook18_id" />
+        <result property="nome" column="flogbook18_nome" />
+    </resultMap>
+
+    <resultMap id="resultWithJustificativas" type="GrupoJustificativaVO">
+        <id property="id" column="flogbook18_id" />
+        <result property="nome" column="flogbook18_nome" />
+        <collection property="colJustificativas" ofType="JustificativaVO">
+            <id property="id" column="flogbook19_id" />
+	        <result property="descricao" column="flogbook19_descricao" />
+	        <result property="responsavel" column="flogbook19_responsavel" />
+	        <result property="dataCadastro" column="flogbook19_data_cadastro" />
+        </collection>
+    </resultMap>
+
+</mapper>

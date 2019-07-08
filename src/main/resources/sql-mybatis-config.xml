@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<typeAliases>
+		<package name="br.com.jbusiness.framework.infra.wsa.manager.vo"/>
+		<package name="br.com.audilog.logbook.arquivosimportacao.vos"/>
+		<package name="br.com.audilog.logbook.modulos.vos" />
+		<package name="br.com.audilog.logbook.relatorios.vos" />
+		<package name="br.com.audilog.logbook.relatorios.tiposrelatorios.vos" />
+		<package name="br.com.audilog.logbook.transportadoras.vos" />
+		<package name="br.com.audilog.logbook.processos.vos" />
+		<package name="br.com.audilog.logbook.tipodocumento.vos" />
+		<package name="br.com.audilog.logbook.tipooperacao.vos" />
+		<package name="br.com.audilog.logbook.estados.vos" />
+		<package name="br.com.audilog.logbook.tiposervico.vos" />
+		<package name="br.com.audilog.logbook.tipocobranca.vos" />
+		<package name="br.com.audilog.logbook.tipoveiculo.vos" />
+		<package name="br.com.audilog.logbook.graficos.vos" />
+		<package name="br.com.audilog.logbook.associartransportadorausuario.vos" />
+		<package name="br.com.audilog.logbook.mensagem.vos" />
+		<package name="br.com.audilog.logbook.justificativa.vos" />
+		<package name="br.com.audilog.logbook.grupojustificativa.vos" />
+		<package name="br.com.audilog.logbook.configuracoes.bloquearimportacaotransportadora.vo" />
+		<package name="br.com.audilog.logbook.configuracoes.prazosliberacao.vo" />
+	</typeAliases>
+
+	<environments default="producao_local">
+		<environment id="localhost">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.postgresql.Driver" />
+				<property name="url"
+					value="jdbc:postgresql://localhost:5432/novelis?zeroDateTimeBehavior=convertToNull" />
+				<property name="username" value="postgres" />
+				<property name="password" value="root" />
+			</dataSource>
+		</environment>
+		<environment id="testes_local">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.postgresql.Driver" />
+				<property name="url"
+					value="jdbc:postgresql://testes.audisys-apf.com:5432/novelis?zeroDateTimeBehavior=convertToNull" />
+				<property name="username" value="postgres" />
+				<property name="password" value="#TestesAudilog!" />
+			</dataSource>
+		</environment>
+		<environment id="testes">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.postgresql.Driver" />
+				<property name="url"
+					value="jdbc:postgresql://localhost:5432/novelis?zeroDateTimeBehavior=convertToNull" />
+				<property name="username" value="postgres" />
+				<property name="password" value="#TestesAudilog!" />
+			</dataSource>
+		</environment>
+		<environment id="producao_local">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.postgresql.Driver" />
+ 				<property name="url"
+ 					value="jdbc:postgresql://srv6.audisys-apf.com:5432/novelis?zeroDateTimeBehavior=convertToNull" />
+ 				<property name="username" value="postgres" />
+ 				<property name="password" value="$Srv6Audilog#" />
+			</dataSource>
+		</environment>
+		<environment id="producao">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="org.postgresql.Driver" />
+ 				<property name="url"
+ 					value="jdbc:postgresql://localhost:5432/novelis?zeroDateTimeBehavior=convertToNull" />
+ 				<property name="username" value="postgres" />
+ 				<property name="password" value="$Srv6Audilog#" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="voxml/JGroupVO.xml" />
+		<mapper resource="voxml/JUserVO.xml" />
+		<mapper resource="voxml/JAuthorizeVO.xml" />
+		<mapper resource="voxml/TransportadoraVO.xml" />
+		<mapper resource="voxml/CnpjTransportadoraVO.xml" />
+		<mapper resource="voxml/ArquivoVO.xml" />
+		<mapper resource="voxml/ModuloVO.xml" />
+		<mapper resource="voxml/TipoRelatorioVO.xml" />
+		<mapper resource="voxml/RelatorioVO.xml" />
+		<mapper resource="voxml/LogbookVO.xml" />
+		<mapper resource="voxml/LogbookNotaVO.xml" />
+		<mapper resource="voxml/TipoDocumentoVO.xml" />
+		<mapper resource="voxml/TipoOperacaoVO.xml" />
+		<mapper resource="voxml/EstadoVO.xml" />
+		<mapper resource="voxml/TipoServicoVO.xml" />
+		<mapper resource="voxml/TipoCobrancaVO.xml" />
+		<mapper resource="voxml/TipoVeiculoVO.xml" />
+		<mapper resource="voxml/GraficoVO.xml" />
+		<mapper resource="voxml/AssociarVO.xml" />
+		<mapper resource="voxml/MensagemVO.xml" />
+		<mapper resource="voxml/GrupoJustificativaVO.xml" />
+		<mapper resource="voxml/JustificativaVO.xml" />
+		<mapper resource="voxml/ErroPrecalculoVO.xml" />
+		<mapper resource="voxml/ErroConembVO.xml" />
+		<mapper resource="voxml/BloquearImportacaoTransportadoraVO.xml" />
+		<mapper resource="voxml/PrazoLiberacaoVO.xml" />
+		<mapper resource="voxml/LogJustVO.xml" />
+	</mappers>
+
+</configuration>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="mensagem">
+
+    <insert id="insert" parameterType="MensagemVO" useGeneratedKeys="true" keyProperty="id" >
+
+        INSERT INTO logbook17_mensagens (
+            flogbook17_titulo,
+            flogbook17_mensagem,
+            flogbook17_responsavel,
+            flogbook17_data_cadastro,
+            flogbook05_id,
+            flogbook17_status
+        ) VALUES (
+        	#{titulo},
+        	#{mensagem},
+        	#{responsavel},
+        	#{dataCadastro},
+            #{transportadora.id},
+            #{status}
+        )
+
+    </insert>
+    
+    <update id="updateStatusOld" parameterType="MensagemVO">
+        UPDATE
+          logbook17_mensagens
+        SET
+          flogbook17_status = 'O'
+        WHERE
+          flogbook17_id = #{id};
+    </update>
+
+    <delete id="delete" parameterType="MensagemVO">
+        DELETE FROM
+          logbook17_mensagens
+        WHERE
+          flogbook17_id = #{id};
+    </delete>
+
+    <select id="select" resultMap="result" >
+        SELECT * FROM 
+			logbook17_mensagens
+		LEFT JOIN
+			logbook05_transportadoras
+		ON 
+			logbook17_mensagens.flogbook05_id = logbook05_transportadoras.flogbook05_id
+		ORDER BY
+			flogbook17_data_cadastro
+		DESC
+    </select>
+    
+    <select id="selectPorTransportadora" resultMap="result" parameterType="MensagemVO" >
+        SELECT 
+			logbook17_mensagens.*,
+			logbook05_transportadoras.*
+		FROM 
+			logbook17_mensagens
+		LEFT JOIN
+			logbook05_transportadoras
+		ON 
+			logbook17_mensagens.flogbook05_id = logbook05_transportadoras.flogbook05_id
+		LEFT JOIN
+			logbook16_transportadoras_usuarios
+		ON
+			logbook05_transportadoras.flogbook05_id = logbook16_transportadoras_usuarios.flogbook05_id
+		WHERE
+			logbook17_mensagens.flogbook05_id is null
+		OR
+			logbook16_transportadoras_usuarios.fscy02_id = #{user.id}
+		ORDER BY
+			flogbook17_data_cadastro
+		DESC LIMIT 15
+    </select>
+    
+    <select id="selectUnique" resultMap="result" parameterType="MensagemVO" >
+        SELECT * FROM 
+			logbook17_mensagens
+		LEFT JOIN
+			logbook05_transportadoras
+		ON 
+			logbook17_mensagens.flogbook05_id = logbook05_transportadoras.flogbook05_id
+		WHERE
+			flogbook17_id = #{id}
+    </select>
+
+
+    <resultMap id="result" type="MensagemVO">
+    	<id property="id" column="flogbook17_id" />
+        <result property="titulo" column="flogbook17_titulo" />
+        <result property="mensagem" column="flogbook17_mensagem" />
+        <result property="responsavel" column="flogbook17_responsavel" />
+        <result property="dataCadastro" column="flogbook17_data_cadastro" />
+        <result property="status" column="flogbook17_status" />
+        <association property="transportadora" javaType="TransportadoraVO">
+           	<id property="id" column="flogbook05_id" />
+	        <result property="razaoSocial" column="flogbook05_razao_social" />
+	        <result property="apelido" column="flogbook05_apelido" />
+	        <result property="dataCadastro" column="flogbook05_data_cadastro" />
+	        <result property="responsavel" column="flogbook05_responsavel" />
+        </association>
+    </resultMap>
+
+</mapper>

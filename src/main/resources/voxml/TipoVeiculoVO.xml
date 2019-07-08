@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="tipoveiculo">
+
+    <select id="select" resultMap="result" >
+        SELECT
+          *
+        FROM
+          logbook14_tipo_veiculo
+        ORDER BY
+          logbook14_tipo_veiculo.flogbook14_id
+        DESC;
+    </select>
+
+    <resultMap id="result" type="TipoVeiculoVO">
+    	<id property="id" column="flogbook14_id"/>
+        <result property="descricao" column="flogbook14_descricao" />
+    </resultMap>
+
+</mapper>

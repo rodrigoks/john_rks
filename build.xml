@@ -1,0 +1,30 @@
+<project default="copyHtmlFilesToProject">
+
+	<property name="toProject" value="src/main/webapp" />
+	<property name="fromProject" value="../john_rks/frontend/dist/jd" />
+	<property name="excludeDirWebInf" value="WEB-INF/*" />
+	<property name="excludeDirDownloads" value="downloads/*" />
+
+    <target name="copyHtmlFilesToProject" depends="deleteHtmlFilesFromProject">
+    	<echo>
+    		Copiando os arquivos de build do projeto de frontend.
+    	</echo>
+        <copy todir="${toProject}">
+        	<fileset dir="${fromProject}"></fileset>
+        </copy>
+    </target>
+    
+    <target name="deleteHtmlFilesFromProject">
+    	<echo>
+    		Excluindo os arquivos do projeto html da pasta ${toProject}
+			exceto a pasta ${excludeDirWebInf} e ${excludeDirDownloads}
+    	</echo>
+    	<delete includeemptydirs="true">
+    		<fileset dir="${toProject}">
+    			<exclude name="${excludeDirWebInf}"/>
+    			<exclude name="${excludeDirDownloads}"/>
+    		</fileset>
+    	</delete>
+    </target>
+
+</project>

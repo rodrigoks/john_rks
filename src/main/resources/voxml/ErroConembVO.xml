@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="erroconemb">
+
+    <insert id="insert" parameterType="LogbookNotaVO" useGeneratedKeys="true" keyProperty="id" >
+
+        INSERT INTO logbook08_logbook_nota (
+            flogbook07_id,
+            flogbook08_emissor,
+            flogbook08_cnpj_emissor,
+            flogbook08_numero,
+            flogbook08_serie,
+            flogbook08_peso,
+            flogbook08_valor,
+            flogbook08_tipo_documento
+        ) VALUES
+        <foreach collection="collection" item="item" index="index" open="(" separator="),(" close=")" >
+            #{item.logbook.id},
+            #{item.emissor},
+            #{item.cnpjEmissor},
+            #{item.numero},
+            #{item.serie},
+            #{item.peso},
+            #{item.valor},
+            #{item.tipoDocumento}
+        </foreach>
+
+    </insert>
+
+    <resultMap id="result" type="LogbookNotaVO">
+        <result property="id" column="flogbook08_id" />
+        <result property="emissor" column="flogbook08_emissor" />
+        <result property="cnpjEmissor" column="flogbook08_cnpj_emissor" />
+        <result property="numero" column="flogbook08_numero" />
+        <result property="serie" column="flogbook08_serie" />
+        <result property="peso" column="flogbook08_peso" />
+        <result property="valor" column="flogbook08_valor" />
+        <result property="tipoDocumento" column="flogbook08_tipo_documento" />
+    </resultMap>
+
+</mapper>
