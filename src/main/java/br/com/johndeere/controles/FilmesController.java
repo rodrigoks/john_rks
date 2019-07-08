@@ -12,26 +12,26 @@ import javax.ws.rs.core.Response;
 
 import br.com.johndeere.exceptions.FilmesException;
 import br.com.johndeere.servicos.ConsultarFilmes;
+import br.com.johndeere.vos.FilmVO;
 
 @Path("/filmes")
-@Consumes(MediaType.TEXT_PLAIN)
 @Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class FilmesController extends HttpServlet {
 	
     @GET
     @PermitAll
-//    @Path("/getAll/{moduloId}")
     public Object getArquivos(
     		@QueryParam("film_id") String film_id, 
     		@QueryParam("character_id") String character_id) throws Exception {
 
-        Object obj = null;
+        FilmVO obj = null;
         ConsultarFilmes filmes;
 
         try {
         	
         	filmes = new ConsultarFilmes();
-        	filmes.consultarFilmes(film_id);
+        	obj = filmes.consultarFilmes(film_id);
         	
         } catch (FilmesException fe) {
 			// TODO: handle exception

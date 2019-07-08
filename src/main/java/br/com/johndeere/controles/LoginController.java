@@ -18,7 +18,6 @@ import org.glassfish.jersey.internal.util.Base64;
 
 import br.com.johndeere.constantes.JdConstantes;
 import br.com.johndeere.constantes.LoginConstantes;
-import br.com.johndeere.exceptions.FilmesException;
 import br.com.johndeere.vos.AuthVO;
 
 @Path("/login")
