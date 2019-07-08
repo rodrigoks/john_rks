@@ -1,5 +1,7 @@
 package br.com.johndeere.controles;
 
+import java.util.Collection;
+
 import javax.annotation.security.PermitAll;
 import javax.servlet.http.HttpServlet;
 import javax.ws.rs.Consumes;
@@ -9,10 +11,13 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
 import br.com.johndeere.exceptions.MoviesException;
+import br.com.johndeere.exceptions.PeoplesException;
 import br.com.johndeere.servicos.ConsultMovie;
 import br.com.johndeere.servicos.ConsultPeoples;
+import br.com.johndeere.servicos.RetrieveSpeciesFromMovie;
 import br.com.johndeere.vos.MovieVO;
 import br.com.johndeere.vos.PeopleVO;
 
@@ -27,26 +32,41 @@ public class JdController extends HttpServlet {
     		@QueryParam("film_id") String film_id, 
     		@QueryParam("character_id") String character_id) throws Exception {
 
-        MovieVO movie = null;
-        PeopleVO people = null;
         ConsultMovie consultMovie;
         ConsultPeoples consultPeoples;
+        RetrieveSpeciesFromMovie result; 
+        
+        MovieVO movie = null;
+        PeopleVO people = null;
+        Collection<PeopleVO> colPeopleResult = null;
 
         try {
         	
+        	if(film_id == null || film_id.equals(""))
+        		throw new MoviesException("Parâmetro identificador de filme não encontrado.");
+        	
+        	if(character_id == null || character_id.equals(""))
+        		throw new MoviesException("Parâmetro identificador de personagem não encontrado.");
+        	
         	consultMovie = new ConsultMovie();
         	movie = consultMovie.consultMovies(film_id);
+        	
         	consultPeoples = new ConsultPeoples();
         	people = consultPeoples.consultarFilmes(movie, character_id);
         	
+        	result = new RetrieveSpeciesFromMovie();
+        	colPeopleResult = result.retrievePeopleBySpecie(movie, people);
+        	
         } catch (MoviesException fe) {
-			// TODO: handle exception
+			Response.status(Status.BAD_REQUEST).entity(fe.getMessage());
+        } catch (PeoplesException pe) {
+			Response.status(Status.BAD_REQUEST).entity(pe.getMessage());
         } catch (Exception e){
             return Response.status(Response.Status.CONFLICT)
             		.entity("Erro gerado durante a execução deste serviço. Favor comunicar o Administrador.").build();
         }
 
-        return Response.ok(people, MediaType.APPLICATION_JSON).build();
+        return Response.ok(colPeopleResult, MediaType.APPLICATION_JSON).build();
 
     }
 

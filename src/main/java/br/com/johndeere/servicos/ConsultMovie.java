@@ -11,9 +11,6 @@ public class ConsultMovie {
 
 	public MovieVO consultMovies(String filmId) throws MoviesException, IOException {
 		
-		if(filmId.equals(""))
-			throw new MoviesException("Favor informar um valor para filmId");
-		
 		String url = "https://swapi.co/api/films/" + filmId + "/?format=json";
 		HttpsURLConnection conn = null;
 		MovieVO movie = null;
@@ -22,9 +19,14 @@ public class ConsultMovie {
 			
 			conn = ConnectionBuilder.doConnection(url);
 			movie = ResponseBuilder.getMovieResponse(ResponseBuilder.getResponse(conn));
+			if(movie == null)
+				throw new MoviesException(
+						"Filme não encontrado para a identificação informada: " + filmId + ".");
 			
+		} catch (MoviesException me) {
+			throw new MoviesException(me.getMessage());
 		} catch (IOException e) {
-			e.printStackTrace();
+			throw new IOException(e);
 		} finally {
 			if(conn != null) {
 				conn.disconnect();

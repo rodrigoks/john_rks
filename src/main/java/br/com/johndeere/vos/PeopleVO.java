@@ -129,6 +129,9 @@ public class PeopleVO {
 	public void setMass(String mass) {
 		this.mass = mass;
 	}
+	public List<String> getSpecies() {
+		return species;
+	}
 	public void setSpecies(List<String> species) {
 		this.species = species;
 	}
