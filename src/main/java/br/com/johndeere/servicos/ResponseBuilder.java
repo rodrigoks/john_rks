@@ -8,19 +8,30 @@ import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.Gson;
 
-import br.com.johndeere.vos.FilmVO;
+import br.com.johndeere.vos.MovieVO;
+import br.com.johndeere.vos.PeopleVO;
 
 public abstract class ResponseBuilder {
 
 	private static Gson gson;
 	
-	public static FilmVO getFilmResponse(String json) throws IOException {
+	public static MovieVO getMovieResponse(String json) throws IOException {
 		
 		if(gson == null)
 			gson = new Gson();
 		
-		FilmVO film = gson.fromJson(json, FilmVO.class);
-		return film;
+		MovieVO movie = gson.fromJson(json, MovieVO.class);
+		return movie;
+		
+    }
+
+	public static PeopleVO getPeopleResponse(String json) throws IOException {
+		
+		if(gson == null)
+			gson = new Gson();
+		
+		PeopleVO people = gson.fromJson(json, PeopleVO.class);
+		return people;
 		
     }
 	
@@ -32,7 +43,7 @@ public abstract class ResponseBuilder {
 		
 		try {
 			
-			if(conn.getResponseCode() > 299) {
+			if(conn.getResponseCode() < 299) {
 				
 				in = new BufferedReader(
 						new InputStreamReader(conn.getInputStream()));

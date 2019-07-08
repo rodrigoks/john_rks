@@ -10,9 +10,11 @@ import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import br.com.johndeere.exceptions.FilmsException;
-import br.com.johndeere.servicos.ConsultFilm;
-import br.com.johndeere.vos.FilmVO;
+import br.com.johndeere.exceptions.MoviesException;
+import br.com.johndeere.servicos.ConsultMovie;
+import br.com.johndeere.servicos.ConsultPeoples;
+import br.com.johndeere.vos.MovieVO;
+import br.com.johndeere.vos.PeopleVO;
 
 @Path("/JohnDeere")
 @Produces(MediaType.APPLICATION_JSON)
@@ -25,22 +27,26 @@ public class JdController extends HttpServlet {
     		@QueryParam("film_id") String film_id, 
     		@QueryParam("character_id") String character_id) throws Exception {
 
-        FilmVO obj = null;
-        ConsultFilm filmes;
+        MovieVO movie = null;
+        PeopleVO people = null;
+        ConsultMovie consultMovie;
+        ConsultPeoples consultPeoples;
 
         try {
         	
-        	filmes = new ConsultFilm();
-        	obj = filmes.consultarFilmes(film_id);
+        	consultMovie = new ConsultMovie();
+        	movie = consultMovie.consultMovies(film_id);
+        	consultPeoples = new ConsultPeoples();
+        	people = consultPeoples.consultarFilmes(movie, character_id);
         	
-        } catch (FilmsException fe) {
+        } catch (MoviesException fe) {
 			// TODO: handle exception
         } catch (Exception e){
             return Response.status(Response.Status.CONFLICT)
             		.entity("Erro gerado durante a execução deste serviço. Favor comunicar o Administrador.").build();
         }
 
-        return Response.ok(obj, MediaType.APPLICATION_JSON).build();
+        return Response.ok(people, MediaType.APPLICATION_JSON).build();
 
     }
 

@@ -26,11 +26,6 @@ public abstract class ConnectionBuilder {
 			
 		} catch (IOException e) {
 			e.printStackTrace();
-		} finally {
-			if(conn != null) {
-				conn.disconnect();
-				conn = null;
-			}
 		}
 		
 		return conn;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.google.gson.annotations.Expose;
 
-public class FilmVO {
+public class MovieVO {
 
 	@Expose
 	private String title;
