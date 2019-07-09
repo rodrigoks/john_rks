@@ -2,7 +2,6 @@ package br.com.johndeere.controles;
 
 import java.util.Collection;
 
-import javax.annotation.security.PermitAll;
 import javax.servlet.http.HttpServlet;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -15,30 +14,37 @@ import javax.ws.rs.core.Response.Status;
 
 import br.com.johndeere.exceptions.MoviesException;
 import br.com.johndeere.exceptions.PeoplesException;
+import br.com.johndeere.exceptions.SpeciesException;
 import br.com.johndeere.servicos.ConsultMovie;
 import br.com.johndeere.servicos.ConsultPeoples;
+import br.com.johndeere.servicos.ConsultSpecies;
 import br.com.johndeere.servicos.RetrieveSpeciesFromMovie;
 import br.com.johndeere.vos.MovieVO;
 import br.com.johndeere.vos.PeopleVO;
+import br.com.johndeere.vos.ResponseVO;
+import br.com.johndeere.vos.SpecieVO;
 
-@Path("/JohnDeere")
+@Path("/johndeere")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class JdController extends HttpServlet {
 	
     @GET
-    @PermitAll
+//    @PermitAll
     public Object getArquivos(
     		@QueryParam("film_id") String film_id, 
     		@QueryParam("character_id") String character_id) throws Exception {
 
         ConsultMovie consultMovie;
         ConsultPeoples consultPeoples;
+        ConsultSpecies consultSpecies;
         RetrieveSpeciesFromMovie result; 
         
         MovieVO movie = null;
         PeopleVO people = null;
-        Collection<PeopleVO> colPeopleResult = null;
+        SpecieVO specie = null;
+        ResponseVO response = null;
+        Collection<PeopleVO> colPeople = null;
 
         try {
         	
@@ -52,11 +58,18 @@ public class JdController extends HttpServlet {
         	movie = consultMovie.consultMovies(film_id);
         	
         	consultPeoples = new ConsultPeoples();
-        	people = consultPeoples.consultarFilmes(movie, character_id);
+        	people = consultPeoples.consultPeoples(movie, character_id);
+        	
+        	consultSpecies = new ConsultSpecies();
+        	specie = consultSpecies.consultSpecies(people);
         	
         	result = new RetrieveSpeciesFromMovie();
-        	colPeopleResult = result.retrievePeopleBySpecie(movie, people);
+        	colPeople = result.retrievePeopleBySpecie(movie, people);
         	
+        	response = new ResponseVO(movie, people, specie, colPeople);
+        	
+        } catch (SpeciesException ee) {
+			Response.status(Status.BAD_REQUEST).entity(ee.getMessage());
         } catch (MoviesException fe) {
 			Response.status(Status.BAD_REQUEST).entity(fe.getMessage());
         } catch (PeoplesException pe) {
@@ -66,7 +79,7 @@ public class JdController extends HttpServlet {
             		.entity("Erro gerado durante a execução deste serviço. Favor comunicar o Administrador.").build();
         }
 
-        return Response.ok(colPeopleResult, MediaType.APPLICATION_JSON).build();
+        return Response.ok(response, MediaType.APPLICATION_JSON).build();
 
     }
 

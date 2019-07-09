@@ -10,6 +10,7 @@ import com.google.gson.Gson;
 
 import br.com.johndeere.vos.MovieVO;
 import br.com.johndeere.vos.PeopleVO;
+import br.com.johndeere.vos.SpecieVO;
 
 public abstract class ResponseBuilder {
 
@@ -32,6 +33,16 @@ public abstract class ResponseBuilder {
 		
 		PeopleVO people = gson.fromJson(json, PeopleVO.class);
 		return people;
+		
+    }
+
+	public static SpecieVO getSpecieResponse(String json) throws IOException {
+		
+		if(gson == null)
+			gson = new Gson();
+		
+		SpecieVO specie = gson.fromJson(json, SpecieVO.class);
+		return specie;
 		
     }
 	

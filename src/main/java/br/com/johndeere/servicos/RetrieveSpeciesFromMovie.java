@@ -8,10 +8,13 @@ import javax.net.ssl.HttpsURLConnection;
 
 import br.com.johndeere.vos.MovieVO;
 import br.com.johndeere.vos.PeopleVO;
+import br.com.johndeere.vos.SpecieVO;
 
 public class RetrieveSpeciesFromMovie {
 
-	public Collection<PeopleVO> retrievePeopleBySpecie(MovieVO movie, PeopleVO people) throws IOException {
+	public Collection<PeopleVO> retrievePeopleBySpecie(
+			MovieVO movie, 
+			PeopleVO people) throws IOException {
 		
 		HttpsURLConnection conn = null;
 		PeopleVO peopleTmp;

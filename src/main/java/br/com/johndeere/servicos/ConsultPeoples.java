@@ -10,7 +10,7 @@ import br.com.johndeere.vos.PeopleVO;
 
 public class ConsultPeoples {
 
-	public PeopleVO consultarFilmes(MovieVO film, String character_id) throws PeoplesException, IOException {
+	public PeopleVO consultPeoples(MovieVO film, String character_id) throws PeoplesException, IOException {
 		
 		PeopleVO people = null;
 		String url = "";
