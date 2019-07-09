@@ -88,6 +88,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             if (lstToken == null || lstToken.isEmpty()) {
                 requestContext.abortWith(Response.status(Response.Status.UNAUTHORIZED)
                         .entity("Usuário não autenticado.").build());
+                return;
             }
             
             Jws<Claims> clm;

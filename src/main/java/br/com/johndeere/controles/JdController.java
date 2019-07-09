@@ -69,11 +69,11 @@ public class JdController extends HttpServlet {
         	response = new ResponseVO(movie, people, specie, colPeople);
         	
         } catch (SpeciesException ee) {
-			Response.status(Status.BAD_REQUEST).entity(ee.getMessage());
+			return Response.status(Status.BAD_REQUEST).entity(ee.getMessage()).build();
         } catch (MoviesException fe) {
-			Response.status(Status.BAD_REQUEST).entity(fe.getMessage());
+			return Response.status(Status.BAD_REQUEST).entity(fe.getMessage()).build();
         } catch (PeoplesException pe) {
-			Response.status(Status.BAD_REQUEST).entity(pe.getMessage());
+			return Response.status(Status.BAD_REQUEST).entity(pe.getMessage()).build();
         } catch (Exception e){
             return Response.status(Response.Status.CONFLICT)
             		.entity("Erro gerado durante a execução deste serviço. Favor comunicar o Administrador.").build();
