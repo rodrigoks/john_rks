@@ -78,8 +78,6 @@ public class LoginController extends HttpServlet {
 
         try {
         	
-        	System.out.println("Username: " + username);
-        	System.out.println("Password: " + password);
         	if(!password.equals(JdConstantes.PASSWORD) || !username.equals(JdConstantes.USER))
         		return Response.status(Status.UNAUTHORIZED).entity("Usuário ou senha inválidos.").build();
         		
