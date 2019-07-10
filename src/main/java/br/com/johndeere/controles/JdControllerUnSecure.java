@@ -22,7 +22,6 @@ import br.com.johndeere.servicos.ConsultSpecies;
 import br.com.johndeere.servicos.RetrieveSpeciesFromMovie;
 import br.com.johndeere.vos.MovieVO;
 import br.com.johndeere.vos.PeopleVO;
-import br.com.johndeere.vos.ResponseVO;
 import br.com.johndeere.vos.SpecieVO;
 
 @Path("/johndeereunsecure")
@@ -44,8 +43,7 @@ public class JdControllerUnSecure extends HttpServlet {
         MovieVO movie = null;
         PeopleVO people = null;
         SpecieVO specie = null;
-        ResponseVO response = null;
-        Collection<PeopleVO> colPeople = null;
+        Collection<String> colPeople = null;
 
         try {
         	
@@ -65,9 +63,7 @@ public class JdControllerUnSecure extends HttpServlet {
         	specie = consultSpecies.consultSpecies(people);
         	
         	result = new RetrieveSpeciesFromMovie();
-        	colPeople = result.retrievePeopleBySpecie(movie, people);
-        	
-        	response = new ResponseVO(movie, people, specie, colPeople);
+        	colPeople = result.retrievePeopleBySpecieStr(movie, people);
         	
         } catch (SpeciesException ee) {
 			return Response.status(Status.BAD_REQUEST).entity(ee.getMessage()).build();
@@ -80,7 +76,7 @@ public class JdControllerUnSecure extends HttpServlet {
             		.entity("Erro gerado durante a execução deste serviço. Favor comunicar o Administrador.").build();
         }
 
-        return Response.ok(response, MediaType.APPLICATION_JSON).build();
+        return Response.ok(colPeople, MediaType.APPLICATION_JSON).build();
 
     }
 
