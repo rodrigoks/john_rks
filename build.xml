@@ -1,7 +1,7 @@
 <project default="copyHtmlFilesToProject">
 
 	<property name="toProject" value="src/main/webapp" />
-	<property name="fromProject" value="../john_rks/frontend/dist/jd" />
+	<property name="fromProject" value="../john_rks_frontend/dist" />
 	<property name="excludeDirWebInf" value="WEB-INF/*" />
 	<property name="excludeDirDownloads" value="downloads/*" />
 
