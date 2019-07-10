@@ -30,7 +30,6 @@ import br.com.johndeere.vos.SpecieVO;
 public class JdController extends HttpServlet {
 	
     @GET
-//    @PermitAll
     public Object getArquivos(
     		@QueryParam("film_id") String film_id, 
     		@QueryParam("character_id") String character_id) throws Exception {
@@ -48,10 +47,10 @@ public class JdController extends HttpServlet {
 
         try {
         	
-        	if(film_id == null || film_id.equals(""))
+        	if(film_id == null || film_id.equals("") || film_id.equals("undefined"))
         		throw new MoviesException("Parâmetro identificador de filme não encontrado.");
         	
-        	if(character_id == null || character_id.equals(""))
+        	if(character_id == null || character_id.equals("") || character_id.equals("undefined"))
         		throw new MoviesException("Parâmetro identificador de personagem não encontrado.");
         	
         	consultMovie = new ConsultMovie();
